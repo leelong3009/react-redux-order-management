@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import ReactTable from 'react-table';
-import { connect } from 'react-redux';
-import { fetchCustomers } from '../actions/customerAction';
-import 'react-table/react-table.css';
+import React, { Component } from "react";
+import ReactTable from "react-table";
+import { connect } from "react-redux";
+import { fetchCustomers } from "../actions/customerAction";
+import "react-table/react-table.css";
 
 class Content extends Component {
   componentWillMount() {
@@ -12,13 +12,13 @@ class Content extends Component {
   render() {
     const columns = [
       {
-        Header: 'Name',
-        accessor: 'name' // String-based value accessors!
+        Header: "Name",
+        accessor: "name" // String-based value accessors!
       },
       {
-        Header: 'Email',
-        accessor: 'email',
-        Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        Header: "Email",
+        accessor: "email",
+        Cell: props => <span className="number">{props.value}</span> // Custom cell components!
       }
     ];
 
@@ -27,8 +27,7 @@ class Content extends Component {
 }
 
 const mapStateToProps = state => {
-  const customers = state.customers;
-  console.log(state.customers);
+  const customers = state.customer.items;
   return { customers };
 };
 
