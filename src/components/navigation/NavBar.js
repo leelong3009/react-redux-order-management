@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import flag from '../images/flag.png';
+import flag from '../../images/flag.png';
 
 class NavBar extends Component {
   render() {

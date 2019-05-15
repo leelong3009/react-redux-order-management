@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import ReactTable from "react-table";
-import { connect } from "react-redux";
-import { fetchCustomers } from "../actions/customerAction";
-import "react-table/react-table.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchCustomers } from '../actions/customerAction';
+import { Table } from './table/Table';
 
 class Content extends Component {
   componentWillMount() {
@@ -10,19 +9,18 @@ class Content extends Component {
   }
 
   render() {
-    const columns = [
+    const tableMetadata = [
       {
-        Header: "Name",
-        accessor: "name" // String-based value accessors!
+        accessKey: 'name',
+        header: 'Name'
       },
       {
-        Header: "Email",
-        accessor: "email",
-        Cell: props => <span className="number">{props.value}</span> // Custom cell components!
+        accessKey: 'email',
+        header: 'Email'
       }
     ];
 
-    return <ReactTable data={this.props.customers} columns={columns} />;
+    return <Table entries={this.props.customers} metadata={tableMetadata} />;
   }
 }
 
