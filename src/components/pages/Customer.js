@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCustomers } from '../actions/customerAction';
-import { Table } from './table/Table';
+import { fetchCustomers } from '../../actions/customerAction';
+import { Table } from '../table/Table';
 
-class Content extends Component {
+class Customer extends Component {
   componentWillMount() {
     this.props.fetchCustomers();
   }
@@ -25,11 +25,11 @@ class Content extends Component {
 }
 
 const mapStateToProps = state => {
-  const customers = state.customer.items;
+  const customers = state.root.customers;
   return { customers };
 };
 
 export default connect(
   mapStateToProps,
   { fetchCustomers }
-)(Content);
+)(Customer);

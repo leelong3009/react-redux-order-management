@@ -3,9 +3,12 @@ import './App.css';
 import 'semantic-ui-css/semantic.min.css';
 import NavBar from './components/navigation/NavBar';
 import SideBar from './components/navigation/SideBar';
-import Content from './components/Content';
+import Customer from './components/pages/Customer';
+import Order from './components/pages/Order';
+import Product from './components/pages/Product';
 import { Provider } from 'react-redux';
 import store from './store/configureStore';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -13,8 +16,14 @@ class App extends Component {
       <Provider store={store}>
         <NavBar />
         <div id='wrapper'>
-          <SideBar />
-          <Content />
+          <Router>
+            <SideBar />
+            <Switch>
+              <Route path='/customer' component={Customer} />
+              <Route path='/order' component={Order} />
+              <Route path='/product' component={Product} />
+            </Switch>
+          </Router>
         </div>
       </Provider>
     );
